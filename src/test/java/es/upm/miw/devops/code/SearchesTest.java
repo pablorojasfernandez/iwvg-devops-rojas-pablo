@@ -42,8 +42,12 @@ class SearchesTest {
     // Method 0
     @Test
     void testFindUserFamilyNameInitialByAnyProperFraction() {
-        assertThat(searches.findUserIdByAnyProperFraction().toList())
-                .isEmpty();
+        List<String> result = searches.findUserFamilyNameInitialByAnyProperFraction()
+                .toList();
+
+        assertThat(result)
+                .hasSize(4)
+                .containsExactlyInAnyOrder("F", "B", "L", "B");
     }
 
     // Method 1
