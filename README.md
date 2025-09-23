@@ -1,18 +1,11 @@
 ## [Máster en Ingeniería Web por la Universidad Politécnica de Madrid (miw-upm)](http://miw.etsisi.upm.es)
 ## Ingeniería Web: Visión General (IWVG) DevOps
-> Este proyecto es un apoyo docente de la asignatura. Cada release liberada corresponde al código utilizado en clase del curso indicado
-
-[![GitHub](https://img.shields.io/github/license/miw-upm/iwvg-devops?color=informational)](https://github.com/miw-upm/iwvg-devops/blob/develop/LICENSE.md)
-[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/miw-upm/iwvg-devops?color=informational)](https://github.com/miw-upm/iwvg-devops/releases)
-![GitHub Release Date](https://img.shields.io/github/release-date/miw-upm/iwvg-devops?color=informational)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/miw-upm/iwvg-devops)
-![GitHub issues](https://img.shields.io/github/issues/miw-upm/iwvg-devops?color=important)
-![GitHub closed issues](https://img.shields.io/github/issues-closed/miw-upm/iwvg-devops?color=informational)
 
 ### Estado del código
 [![DevOps](https://github.com/pablorojasfernandez/iwvg-devops-rojas-pablo/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/pablorojasfernandez/iwvg-devops-rojas-pablo/actions/workflows/continuous-integration.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pablorojasfernandez_iwvg-devops-rojas-pablo&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pablorojasfernandez_iwvg-devops-rojas-pablo)
 [![Render broken](https://iwvg-devops-rojas-pablo.onrender.com/version-badge)](https://iwvg-devops-rojas-pablo.onrender.com/swagger-ui.html)
+
 
 
 ### Tecnologías necesarias
@@ -133,3 +126,26 @@ Indicar como texto en la subida la **URL de GitHub**
 
 Ejemplo resuelto:
 ![](./docs/miw-iwvg-devops-demo.png)
+
+### Problems detected with Unit Tests:
+
+Initially, coverage results from unit tests were not reported in SonarCloud, even though the tests were executed successfully.
+
+The Maven configuration was overriding the argLine property, replacing Jacoco’s agent with Mockito’s one.
+```
+<configuration>
+    <argLine>
+        -javaagent:${settings.localRepository}/org/mockito/mockito-core/${mockito.version}/mockito-core-${mockito.version}.jar
+        -Xshare:off
+    </argLine>
+</configuration>
+```
+As a result, no coverage was sent to SonarCloud.
+
+Updated the ***maven-surefire-plugin*** configuration to append our custom arguments:
+```
+<configuration>
+    <argLine>${argLine} -Xshare:off</argLine>
+</configuration>
+```
+SonarCloud correctly reports test coverage.
