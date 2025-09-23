@@ -124,4 +124,20 @@ class FractionTest {
         assertThat(fraction.toString())
                 .isEqualTo("Fraction{numerator=5, denominator=6}");
     }
+
+    @Test
+    void testConstructorDenominatorZeroThrows() {
+        assertThatThrownBy(() -> new Fraction(3, 0))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Denominator cannot be zero");
+    }
+
+    @Test
+    void testSetDenominatorZeroThrows() {
+        Fraction fraction = new Fraction(1, 2);
+
+        assertThatThrownBy(() -> fraction.setDenominator(0))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("Denominator cannot be zero");
+    }
 }
