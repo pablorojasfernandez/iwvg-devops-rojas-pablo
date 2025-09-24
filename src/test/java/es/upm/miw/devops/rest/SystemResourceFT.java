@@ -1,4 +1,4 @@
-package es.upm.miw.devops.functionaltests;
+package es.upm.miw.devops.rest;
 
 import es.upm.miw.devops.rest.SystemResource;
 import org.junit.jupiter.api.Test;
