@@ -44,10 +44,12 @@ public class Searches {
                 .map(User::getId);
     }
 
+    @SuppressWarnings("unused")
     public Fraction findFractionMultiplicationByUserFamilyName(String familyName) {
         return null;
     }
 
+    @SuppressWarnings("unused")
     public Fraction findFirstFractionDivisionByUserId(String id) {
         return null;
     }
@@ -66,10 +68,12 @@ public class Searches {
         return Stream.empty();
     }
 
+    @SuppressWarnings("unused")
     public Stream<Double> findDecimalImproperFractionByUserName(String name) {
         return Stream.empty();
     }
 
+    @SuppressWarnings("unused")
     public Fraction findFirstProperFractionByUserId(String id) {
         return null;
     }
@@ -94,6 +98,7 @@ public class Searches {
         return Stream.empty();
     }
 
+    @SuppressWarnings("unused")
     public Stream<Double> findDecimalFractionByUserName(String name) {
         return Stream.empty();
     }
@@ -102,10 +107,12 @@ public class Searches {
         return Stream.empty();
     }
 
+    @SuppressWarnings("unused")
     public Fraction findFractionAdditionByUserId(String id) {
         return null;
     }
 
+    @SuppressWarnings("unused")
     public Fraction findFirstFractionSubtractionByUserName(String name) {
         return null;
     }
