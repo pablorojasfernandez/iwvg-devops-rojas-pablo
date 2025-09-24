@@ -75,7 +75,13 @@ class SearchesTest {
     // Method 4
     @Test
     void testFindFirstDecimalFractionByUserName() {
-        assertThat(searches.findFirstDecimalFractionByUserName("user1"))
+        assertThat(searches.findFirstDecimalFractionByUserName("Oscar"))
+                .isEqualTo(0.0);
+
+        assertThat(searches.findFirstDecimalFractionByUserName("Ana"))
+                .isEqualTo(2.0);
+
+        assertThat(searches.findFirstDecimalFractionByUserName("NoExiste"))
                 .isNull();
     }
 
