@@ -53,8 +53,11 @@ class SearchesTest {
     // Method 1
     @Test
     void testFindUserIdByAnyProperFraction() {
-        assertThat(searches.findUserIdByAnyProperFraction().toList())
-                .isEmpty();
+        List<String> result = searches.findUserIdByAnyProperFraction().toList();
+
+        assertThat(result)
+                .hasSize(4)
+                .containsExactlyInAnyOrder("1", "2", "3", "5");
     }
 
     @Test
