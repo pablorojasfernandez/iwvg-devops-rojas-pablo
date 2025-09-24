@@ -106,8 +106,12 @@ class SearchesTest {
     // Method 8
     @Test
     void testFindUserFamilyNameByImproperFraction() {
-        assertThat(searches.findUserFamilyNameByImproperFraction().toList())
-                .isEmpty();
+        List<String> result = searches.findUserFamilyNameByImproperFraction()
+                .toList();
+
+        assertThat(result)
+                .hasSize(5)
+                .containsExactlyInAnyOrder("Fernandez", "Blanco", "López", "Torres", "Torres");
     }
 
     @Test
