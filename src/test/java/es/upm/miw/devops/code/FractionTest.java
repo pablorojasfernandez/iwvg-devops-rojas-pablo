@@ -122,7 +122,7 @@ class FractionTest {
         Fraction fraction = new Fraction(5, 6);
 
         assertThat(fraction.toString())
-                .isEqualTo("Fraction{numerator=5, denominator=6}");
+                .hasToString("Fraction{numerator=5, denominator=6}");
     }
 
     @Test
