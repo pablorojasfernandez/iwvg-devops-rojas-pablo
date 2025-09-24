@@ -3,7 +3,7 @@ package es.upm.miw.devops;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 @SpringBootTest
 class ApplicationTest {
@@ -15,8 +15,8 @@ class ApplicationTest {
 
     @Test
     void mainRuns() {
-        // Simplemente comprobamos que no lanza excepciones
-        Application.main(new String[] {});
+        assertThatCode(() -> Application.main(new String[] {}))
+                .doesNotThrowAnyException();
     }
 
 }

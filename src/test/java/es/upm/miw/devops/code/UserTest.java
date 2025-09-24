@@ -1,7 +1,5 @@
 package es.upm.miw.devops.code;
 
-import es.upm.miw.devops.code.Fraction;
-import es.upm.miw.devops.code.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
