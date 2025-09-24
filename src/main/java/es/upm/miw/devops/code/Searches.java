@@ -56,6 +56,7 @@ public class Searches {
 
     // Method 4
     public Double findFirstDecimalFractionByUserName(String name) {
+        // There is a bug (‘dummy’) that now is corrected #15.
         return new UsersDatabase().findAll()
                 .filter(user -> name.equals(user.getName()))
                 .flatMap(user -> user.getFractions().stream())
